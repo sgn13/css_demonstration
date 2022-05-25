@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { ActionWrapper } from "../../containers/sideProperties";
 
 const properties = [
   {
@@ -21,36 +22,7 @@ const properties = [
   },
 ];
 const index = () => {
-  const [css, setCss] = useState("red");
-
-  const MainContentWrapper = styled.div`
-    display: flex;
-    padding: 2rem;
-    background-color: white;
-    justify-content: space-between;
-    &:first-child {
-      background-color: red;
-      padding: 1rem;
-    }
-  `;
-
-  const ActionWrapper = styled.div`
-    width: 100%;
-    flex: 2;
-    background-color: #ddd;
-    height: 50vh;
-    overflow-y: auto;
-    .property_name {
-      background-color: white;
-      padding: 0.5rem;
-      margin: 0.3rem;
-      cursor: pointer;
-      transition: 0.5s ease-out;
-      &:hover {
-        background-color: #ddd;
-      }
-    }
-  `;
+  const [value, setValue] = useState("steelblue");
 
   const ContentWrapper = styled.div`
     display: flex;
@@ -75,16 +47,21 @@ const index = () => {
   `;
 
   return (
-    <MainContentWrapper>
+    <>
       <ActionWrapper>
         {properties.map((property) => (
-          <p className="property_name" onClick={() => setCss(property.value)}>
+          <p
+            className={`property_name ${
+              property.value === value ? "active" : ""
+            }`}
+            onClick={() => setValue(property.value)}
+          >
             background-color: {property.value};
           </p>
         ))}
       </ActionWrapper>
-      <ContentWrapper backgroundColor={css}>Change me</ContentWrapper>
-    </MainContentWrapper>
+      <ContentWrapper backgroundColor={value}>Change me</ContentWrapper>
+    </>
   );
 };
 

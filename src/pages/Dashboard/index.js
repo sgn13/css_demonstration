@@ -3,6 +3,15 @@ import { properties } from "../../constants/properties";
 import JustifyContent from "../../components/flex/justify-content/index";
 import FlexDirection from "../../components/flex/flex-direction/index";
 import BackgroundColor from "../../components/background/index";
+import styled from "styled-components";
+
+const MainContentWrapper = styled.div`
+  display: flex;
+  padding: 2rem;
+  height: 50vh;
+  background-color: #f9f9f9;
+  justify-content: space-between;
+`;
 const index = () => {
   const [selector, setSelector] = useState("justify-content");
 
@@ -28,6 +37,7 @@ const index = () => {
           name="selector"
           id=""
           onChange={(e) => setSelector(e.target.value)}
+          value={selector}
         >
           {properties.map((property, index) => (
             <option value={property} key={index}>
@@ -36,11 +46,9 @@ const index = () => {
           ))}
         </select>
       </div>
-      {components.map((list) => list[selector] && list.component)}
-      {components[name] === selector && components[component]}
-      {components.find((list) => list.name === selector)?.component}
-      {/* <JustifyContent />
-      <BackgroundColor /> */}
+      <MainContentWrapper>
+        {components.find((list) => list.name === selector)?.component}
+      </MainContentWrapper>
     </div>
   );
 };

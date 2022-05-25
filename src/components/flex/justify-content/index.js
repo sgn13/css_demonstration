@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { ActionWrapper } from "../../../containers/sideProperties";
 
 const properties = [
   {
@@ -48,41 +49,12 @@ const properties = [
   },
 ];
 const index = () => {
-  const [css, setCss] = useState("");
-
-  const MainContentWrapper = styled.div`
-    display: flex;
-    padding: 2rem;
-    background-color: white;
-    justify-content: space-between;
-    &:first-child {
-      background-color: red;
-      padding: 1rem;
-    }
-  `;
-
-  const ActionWrapper = styled.div`
-    width: 100%;
-    flex: 2;
-    background-color: #ddd;
-    height: 50vh;
-    overflow-y: auto;
-    .property_name {
-      background-color: white;
-      padding: 0.5rem;
-      margin: 0.3rem;
-      cursor: pointer;
-      transition: 0.5s ease-out;
-      &:hover {
-        background-color: #ddd;
-      }
-    }
-  `;
+  const [value, setValue] = useState("center");
 
   const ContentWrapper = styled.div`
     display: flex;
     justify-content: ${(props) => props.justify_content};
-    padding: 4em;
+    padding: 1em;
     background: #f1f1f1;
     flex: 5;
 
@@ -90,6 +62,7 @@ const index = () => {
       margin: 3rem;
       padding: 1rem;
       height: 3rem;
+
       &:nth-child(1) {
         background-color: hsl(136, 35%, 70%);
       }
@@ -103,20 +76,25 @@ const index = () => {
   `;
 
   return (
-    <MainContentWrapper>
+    <>
       <ActionWrapper>
         {properties.map((property) => (
-          <p className="property_name" onClick={() => setCss(property.value)}>
+          <p
+            className={`property_name ${
+              property.value === value ? "active" : ""
+            }`}
+            onClick={() => setValue(property.value)}
+          >
             justify-content: {property.value};
           </p>
         ))}
       </ActionWrapper>
-      <ContentWrapper justify_content={css}>
+      <ContentWrapper justify_content={value}>
         <div>Content 1</div>
         <div>Content 2</div>
         <div>Content 3</div>
       </ContentWrapper>
-    </MainContentWrapper>
+    </>
   );
 };
 
