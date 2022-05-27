@@ -5,44 +5,58 @@ import { ActionWrapper } from "../../containers/sideProperties";
 const properties = [
   {
     id: 1,
-    value: "steelblue",
+    value: "5px solid steelblue",
   },
   {
     id: 2,
-    value: "hsl(136, 35%, 70%)",
+    value: "5px dotted red",
   },
   {
     id: 3,
-    value: "#4ac2b1",
+    value: "5px dashed blue",
   },
-
+  {
+    id: 4,
+    value: "5px inset",
+  },
   {
     id: 5,
-    value: "rgb(108, 146, 184)",
+    value: "5px outset",
+  },
+  {
+    id: 6,
+    value: "5px ridge",
+  },
+  {
+    id: 7,
+    value: "5px groove",
+  },
+  {
+    id: 8,
+    value: "double",
   },
 ];
-const index = () => {
-  const [value, setValue] = useState("steelblue");
+
+const borderBottomProperties = [
+  {
+    id: 1,
+    value: "5px solid steelblue",
+  },
+  {
+    id: 2,
+    value: "5px dotted red",
+  },
+];
+
+const index = ({ border, borderBottom }) => {
+  const [value, setValue] = useState("5px solid steelblue");
+
   const ContentWrapper = styled.div`
     display: flex;
-    background-color: ${(props) => props.changedValue};
+    border: ${(props) => props.changedValue};
+    border-bottom: ${(props) => props.borderBottom};
     padding: 1rem;
     flex: 5;
-
-    div {
-      margin: 3rem;
-      padding: 1rem;
-      height: 3rem;
-      &:nth-child(1) {
-        background-color: hsl(136, 35%, 70%);
-      }
-      &:nth-child(2) {
-        background-color: hsl(289, 27%, 75%);
-      }
-      &:nth-child(3) {
-        background-color: hsl(13, 27%, 75%);
-      }
-    }
   `;
 
   return (
@@ -55,7 +69,7 @@ const index = () => {
             }`}
             onClick={() => setValue(property.value)}
           >
-            background-color: {property.value};
+            border: {property.value};
           </p>
         ))}
       </ActionWrapper>

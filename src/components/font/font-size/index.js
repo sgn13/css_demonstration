@@ -5,29 +5,49 @@ import { ActionWrapper } from "../../../containers/sideProperties";
 const properties = [
   {
     id: 1,
-    value: "row",
+    value: "1pt",
   },
   {
     id: 2,
-    value: "column",
+    value: "16px",
   },
   {
     id: 3,
-    value: "row-reverse",
+    value: "32px",
   },
   {
     id: 4,
-    value: "column-reverse",
+    value: "1rem",
+  },
+  {
+    id: 5,
+    value: "2rem",
+  },
+  {
+    id: 6,
+    value: "1cm",
+  },
+  {
+    id: 7,
+    value: "1in",
+  },
+  {
+    id: 8,
+    value: "1mm",
+  },
+  {
+    id: 9,
+    value: "pc",
   },
 ];
+
 const index = () => {
-  const [value, setValue] = useState("row");
+  const [value, setValue] = useState("Arial");
 
   const ContentWrapper = styled.div`
     display: flex;
-    flex-direction: ${(props) => props.changedValue};
+    font-size: ${(props) => props.changedValue};
     padding: 1rem;
-    background: #f1f1f1;
     flex: 5;
 
     div {
@@ -56,14 +76,12 @@ const index = () => {
             }`}
             onClick={() => setValue(property.value)}
           >
-            justify-content: {property.value};
+            font-size: {property.value};
           </p>
         ))}
       </ActionWrapper>
       <ContentWrapper changedValue={value}>
-        <div>Content 1</div>
-        <div>Content 2</div>
-        <div>Content 3</div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, alias.
       </ContentWrapper>
     </>
   );

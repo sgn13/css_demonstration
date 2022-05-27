@@ -5,29 +5,25 @@ import { ActionWrapper } from "../../../containers/sideProperties";
 const properties = [
   {
     id: 1,
-    value: "row",
+    value: "normal",
   },
   {
     id: 2,
-    value: "column",
+    value: "italic",
   },
   {
     id: 3,
-    value: "row-reverse",
-  },
-  {
-    id: 4,
-    value: "column-reverse",
+    value: "oblique",
   },
 ];
+
 const index = () => {
-  const [value, setValue] = useState("row");
+  const [value, setValue] = useState("normal");
 
   const ContentWrapper = styled.div`
     display: flex;
-    flex-direction: ${(props) => props.changedValue};
+    font-style: ${(props) => props.changedValue};
     padding: 1rem;
-    background: #f1f1f1;
     flex: 5;
 
     div {
@@ -56,14 +52,12 @@ const index = () => {
             }`}
             onClick={() => setValue(property.value)}
           >
-            justify-content: {property.value};
+            font-style: {property.value};
           </p>
         ))}
       </ActionWrapper>
       <ContentWrapper changedValue={value}>
-        <div>Content 1</div>
-        <div>Content 2</div>
-        <div>Content 3</div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, alias.
       </ContentWrapper>
     </>
   );

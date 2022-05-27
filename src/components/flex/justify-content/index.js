@@ -54,23 +54,29 @@ const index = () => {
   const ContentWrapper = styled.div`
     display: flex;
     justify-content: ${(props) => props.justify_content};
-    padding: 1em;
+    padding: 1rem;
     background: #f1f1f1;
     flex: 5;
-
+    transition: opacity 1s;
     div {
       margin: 3rem;
       padding: 1rem;
       height: 3rem;
+      opacity: 0.4;
+      transition: 1s ease;
 
       &:nth-child(1) {
         background-color: hsl(136, 35%, 70%);
+        opacity: 1;
+        transition: opacity 1s;
       }
       &:nth-child(2) {
         background-color: hsl(289, 27%, 75%);
+        transition: opacity 1s;
       }
       &:nth-child(3) {
         background-color: hsl(13, 27%, 75%);
+        transition: opacity 1s;
       }
     }
   `;
