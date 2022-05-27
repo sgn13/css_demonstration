@@ -76,6 +76,7 @@ const index = () => {
           ))}
         </select>
       </div>
+
       <MainContentWrapper>
         {components.find((list) => list.name === selector)?.component}
       </MainContentWrapper>
