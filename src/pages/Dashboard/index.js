@@ -8,6 +8,8 @@ import FontFamily from "../../components/font/font-family/index.js";
 import FontSize from "../../components/font/font-size/index.js";
 import FontStyle from "../../components/font/font-style/index.js";
 import Border from "../../components/border/index.js";
+import BorderBottom from "../../components/border/borderBottom/index.js";
+import BorderTop from "../../components/border/borderTop/index.js";
 
 import styled from "styled-components";
 
@@ -56,7 +58,11 @@ const index = () => {
     },
     {
       name: "border-bottom",
-      component: <Border borderBottom={true} />,
+      component: <BorderBottom />,
+    },
+    {
+      name: "border-top",
+      component: <BorderTop />,
     },
   ];
   return (
