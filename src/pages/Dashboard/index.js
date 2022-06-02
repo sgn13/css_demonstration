@@ -10,6 +10,7 @@ import FontStyle from "../../components/font/font-style/index.js";
 import Border from "../../components/border/index.js";
 import BorderBottom from "../../components/border/borderBottom/index.js";
 import BorderTop from "../../components/border/borderTop/index.js";
+import ZIndex from "../../components/z-index/index.js";
 
 import styled from "styled-components";
 
@@ -19,6 +20,15 @@ const MainContentWrapper = styled.div`
   height: 50vh;
   background-color: #f9f9f9;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    & {
+      flex-direction: column;
+    }
+  }
+`;
+const TextCenter = styled.div`
+  width: 100%;
+  text-align: center;
 `;
 const index = () => {
   const [selector, setSelector] = useState("justify-content");
@@ -64,6 +74,10 @@ const index = () => {
       name: "border-top",
       component: <BorderTop />,
     },
+    {
+      name: "z-index",
+      component: <ZIndex />,
+    },
   ];
   return (
     <div id="main">
@@ -84,7 +98,13 @@ const index = () => {
       </div>
 
       <MainContentWrapper>
-        {components.find((list) => list.name === selector)?.component}
+        {components.find((list) => list.name === selector) ? (
+          components.find((list) => list.name === selector)?.component
+        ) : (
+          <TextCenter>
+            <h3>Building on proces ... </h3>
+          </TextCenter>
+        )}
       </MainContentWrapper>
     </div>
   );
