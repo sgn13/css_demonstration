@@ -3,13 +3,13 @@ import { properties } from "../../constants/properties";
 
 import JustifyContent from "../../components/flex/justify-content/index";
 import FlexDirection from "../../components/flex/flex-direction/index";
+import BackdropFilter from "../../components/backdrop-filter/index";
 import BackgroundColor from "../../components/background/index";
 import FontFamily from "../../components/font/font-family/index.js";
 import FontSize from "../../components/font/font-size/index.js";
 import FontStyle from "../../components/font/font-style/index.js";
 import Border from "../../components/border/index.js";
-import BorderBottom from "../../components/border/borderBottom/index.js";
-import BorderTop from "../../components/border/borderTop/index.js";
+import Padding from "../../components/padding/index.js";
 import ZIndex from "../../components/z-index/index.js";
 
 import styled from "styled-components";
@@ -31,12 +31,16 @@ const TextCenter = styled.div`
   text-align: center;
 `;
 const index = () => {
-  const [selector, setSelector] = useState("justify-content");
+  const [selector, setSelector] = useState("padding");
 
   const components = [
     {
       name: "justify-content",
       component: <JustifyContent />,
+    },
+    {
+      name: "backdrop-filter",
+      component: <BackdropFilter />,
     },
     {
       name: "background-color",
@@ -64,15 +68,43 @@ const index = () => {
     },
     {
       name: "border",
-      component: <Border />,
+      component: <Border keyName="border" />,
     },
     {
       name: "border-bottom",
-      component: <BorderBottom />,
+      component: <Border keyName="border-bottom" />,
     },
     {
       name: "border-top",
-      component: <BorderTop />,
+      component: <Border keyName="border-top" />,
+    },
+    {
+      name: "border-right",
+      component: <Border keyName="border-right" />,
+    },
+    {
+      name: "border-left",
+      component: <Border keyName="border-left" />,
+    },
+    {
+      name: "padding",
+      component: <Padding keyName="padding" />,
+    },
+    {
+      name: "padding-top",
+      component: <Padding keyName="padding-top" />,
+    },
+    {
+      name: "padding-right",
+      component: <Padding keyName="padding-right" />,
+    },
+    {
+      name: "padding-bottom",
+      component: <Padding keyName="padding-bottom" />,
+    },
+    {
+      name: "padding-left",
+      component: <Padding keyName="padding-left" />,
     },
     {
       name: "z-index",
@@ -102,7 +134,7 @@ const index = () => {
           components.find((list) => list.name === selector)?.component
         ) : (
           <TextCenter>
-            <h3>Building on proces ... </h3>
+            <h3>Building on process ... </h3>
           </TextCenter>
         )}
       </MainContentWrapper>

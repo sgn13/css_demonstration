@@ -4,22 +4,27 @@ import { ActionWrapper } from "../../containers/sideProperties";
 import { keyValue } from "./const";
 
 const index = ({ keyName }) => {
-  const [value, setValue] = useState("5px solid steelblue");
+  const [value, setValue] = useState("10px");
 
   const ContentWrapper = styled.div`
-    display: flex;
-    border: ${(props) =>
-      props.propertyName === "border" ? props.changedValue : "none"};
-    border-bottom: ${(props) =>
-      props.propertyName === "border-bottom" ? props.changedValue : ""};
-    border-top: ${(props) =>
-      props.propertyName === "border-top" ? props.changedValue : ""};
-    border-right: ${(props) =>
-      props.propertyName === "border-right" ? props.changedValue : ""};
-    border-left: ${(props) =>
-      props.propertyName === "border-left" ? props.changedValue : ""};
+    display: grid;
+    place-items: center;
     padding: 1rem;
     flex: 5;
+    .padding_element {
+      padding: 0.5rem;
+      padding: ${(props) =>
+        props.propertyName === "padding" ? props.changedValue : ""};
+      padding-bottom: ${(props) =>
+        props.propertyName === "padding-bottom" ? props.changedValue : ""};
+      padding-top: ${(props) =>
+        props.propertyName === "padding-top" ? props.changedValue : ""};
+      padding-right: ${(props) =>
+        props.propertyName === "padding-right" ? props.changedValue : ""};
+      padding-left: ${(props) =>
+        props.propertyName === "padding-left" ? props.changedValue : ""};
+      background: red;
+    }
   `;
   const selected = keyValue.find((list) => list.name === keyName);
 
@@ -38,7 +43,7 @@ const index = ({ keyName }) => {
       </ActionWrapper>
 
       <ContentWrapper changedValue={value} propertyName={selected?.name}>
-        Change me
+        <div className="padding_element">Change my padding</div>
       </ContentWrapper>
     </>
   );

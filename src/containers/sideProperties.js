@@ -4,7 +4,7 @@ export const ActionWrapper = styled.div`
   width: 100%;
   flex: 2;
   background-color: #ddd;
-  height: 50vh;
+  max-height: 50vh;
   overflow-y: auto;
   .property_name {
     background-color: white;
@@ -20,11 +20,11 @@ export const ActionWrapper = styled.div`
       font-weight: 600;
     }
   }
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     & {
       height: auto;
 
       overflow-y: hidden;
     }
-  }
+  } */
 `;
