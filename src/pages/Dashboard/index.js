@@ -10,6 +10,7 @@ import FontSize from "../../components/font/font-size/index.js";
 import FontStyle from "../../components/font/font-style/index.js";
 import Border from "../../components/border/index.js";
 import Padding from "../../components/padding/index.js";
+import Margin from "../../components/margin/index.js";
 import ZIndex from "../../components/z-index/index.js";
 
 import styled from "styled-components";
@@ -31,7 +32,7 @@ const TextCenter = styled.div`
   text-align: center;
 `;
 const index = () => {
-  const [selector, setSelector] = useState("padding");
+  const [selector, setSelector] = useState("margin");
 
   const components = [
     {
@@ -107,10 +108,31 @@ const index = () => {
       component: <Padding keyName="padding-left" />,
     },
     {
+      name: "margin",
+      component: <Margin keyName="margin" />,
+    },
+    {
+      name: "margin-top",
+      component: <Margin keyName="margin-top" />,
+    },
+    {
+      name: "margin-right",
+      component: <Margin keyName="margin-right" />,
+    },
+    {
+      name: "margin-bottom",
+      component: <Margin keyName="margin-bottom" />,
+    },
+    {
+      name: "margin-left",
+      component: <Margin keyName="margin-left" />,
+    },
+    {
       name: "z-index",
       component: <ZIndex />,
     },
   ];
+
   return (
     <div id="main">
       <div className="header">
