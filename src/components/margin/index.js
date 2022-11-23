@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { ActionWrapper } from "../../containers/sideProperties";
+import { FaRegClipboard } from "react-icons/fa";
+
 import { keyValue } from "./const";
 
 const index = ({ keyName }) => {
@@ -41,9 +43,21 @@ const index = ({ keyName }) => {
           selected.properties.map((a) => (
             <p
               className={`property_name ${a.value === value ? "active" : ""}`}
-              onClick={() => setValue(a.value)}
+              onClick={() => {
+                setValue(a.value);
+              }}
             >
               {selected.name}: {a.value};
+              <div className="clipboard tooltip">
+                <FaRegClipboard
+                  onClick={() => {
+                    navigator.clipboard.writeText(
+                      `${selected.name}:${a.value};`
+                    );
+                  }}
+                />
+                {/* <span class="tooltiptext">Copy Text </span> */}
+              </div>
             </p>
           ))}
       </ActionWrapper>
