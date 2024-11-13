@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "build"), // Use 'build' directory for GitHub Pages
     filename: "bundle.js",
-    publicPath: "/css_demonstration/", // Set to your GitHub repo name
+    publicPath: "/css_demonstration", // Set to your GitHub repo name
   },
   devServer: {
     port: 3010,
