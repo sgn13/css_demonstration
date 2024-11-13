@@ -2,14 +2,14 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "production", // Change to 'production' if you're deploying a production build
+  mode: "production", // Set to 'production' for deployment
   entry: {
     bundle: path.resolve(__dirname, "src/index.js"),
   },
   output: {
-    path: path.join(__dirname, "build"), // Change 'dist' to 'build'
+    path: path.join(__dirname, "build"), // Use 'build' directory for GitHub Pages
     filename: "bundle.js",
-    publicPath: "/css_demonstration/", // Match this to your GitHub repo name
+    publicPath: "/css_demonstration/", // Set to your GitHub repo name
   },
   devServer: {
     port: 3010,
@@ -33,9 +33,9 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          "style-loader", // creates style nodes from JS strings
-          "css-loader", // translates CSS into CommonJS
-          "sass-loader", // compiles Sass to CSS
+          "style-loader", // Creates style nodes from JS strings
+          "css-loader", // Translates CSS into CommonJS
+          "sass-loader", // Compiles Sass to CSS
         ],
       },
       {
